@@ -32,8 +32,9 @@ if __name__ == "__main__":
             with open(argv[1], 'r') as file:
                 line = file.readline()
 
-                while line != '\n' and line != "":
-                    number = int(line)
+                while line != "":
+                    string = line.split("\n")
+                    number = int(string[0])
                     factorize(number)
                     line = file.readline()
         except Exception as Error:
