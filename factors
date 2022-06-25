@@ -28,7 +28,6 @@ if __name__ == "__main__":
         raise Exception("Usage: factors <file>")
     else:
         try:
-            print(argv[1])
             with open(argv[1], 'r') as file:
                 line = file.readline()
 
