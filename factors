@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+from sys import argv
+
+
+def factorize(dividend=2):
+    """ Factorize a number into a product of two smaller numbers.
+
+    Args:
+        number (int): Integer to find its factors.
+
+    Returns:
+        None.
+    """
+    divisor = 2
+
+    if (dividend < 2):
+        raise ValueError("Valid natural numbers greater than 1 required!")
+
+    while (dividend % divisor != 0):
+        divisor += 1
+
+    quotient = dividend / divisor
+    print("{:d}={:d}*{:d}".format(dividend, dividend // divisor, divisor))
+
+
+if __name__ == "__main__":
+    if len(argv) != 2:
+        raise Exception("Usage: factors <file>")
+    else:
+        try:
+            print(argv[1])
+            with open(argv[1], 'r') as file:
+                line = file.readline()
+
+                while line != '\n' and line != "":
+                    number = int(line)
+                    factorize(number)
+                    line = file.readline()
+        except Exception as Error:
+            print(Error)
